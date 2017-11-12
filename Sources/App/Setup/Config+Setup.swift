@@ -9,6 +9,8 @@ extension Config {
         try setupProviders()
         try setupPreparations()
     }
+
+    
     
     /// Configure providers
     private func setupProviders() throws {
@@ -18,6 +20,7 @@ extension Config {
     /// Add all models that should have their
     /// schemas prepared before the app boots
     private func setupPreparations() throws {
-        preparations.append(Post.self)
+        preparations.append(Reminder.self)
     }
+    
 }

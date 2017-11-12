@@ -55,6 +55,21 @@ extension Post: Preparation {
     }
 }
 
+extension Reminder: Preparation {
+    static func prepare(_ database: Database) throws {
+        try database.create(self) { builder in
+            builder.id()
+            builder.string("title")
+            builder.string("description")
+        }
+    }
+    
+    static func revert(_ database: Database) throws {
+        try database.delete(self)
+    }
+}
+
+
 // MARK: JSON
 
 // How the model converts from / to JSON.
